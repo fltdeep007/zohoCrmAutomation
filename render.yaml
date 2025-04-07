@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: flask-email-automation
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: SECRET_KEY
+        value: your_super_secret_key
+      - key: OAUTHLIB_INSECURE_TRANSPORT
+        value: 1
+    autoDeploy: true

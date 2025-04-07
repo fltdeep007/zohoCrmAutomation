@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - Zoho Email Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        .card {
+            border: none;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+        }
+        .stats-card {
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .badge-pending {
+            background-color: #ffc107;
+        }
+        .badge-processing {
+            background-color: #17a2b8;
+        }
+        .badge-completed {
+            background-color: #28a745;
+        }
+        .badge-failed {
+            background-color: #dc3545;
+        }
+        .progress {
+            height: 1rem;
+        }
+        .template-preview {
+            border: 1px solid #e9ecef;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .table-hover tbody tr:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-envelope-paper"></i> Zoho Email Automation
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jobs">View Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create_job">Create New Job</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Job #{{ job.id }} Details</h2>
+            <a href="/jobs" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left me-2"></i>
+                Back to Jobs
+            </a>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Job Status Card -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Job Status</h5>
+                <div>
+                    {% if job.status == 'pending' %}
+                        <span class="badge bg-warning">Pending</span>
+                    {% elif job.status == 'processing' %}
+                        <span class="badge bg-info">Processing</span>
+                    {% elif job.status == 'completed' %}
+                        <span class="badge bg-success">Completed</span>
+                    {% elif job.status == 'failed' %}
+                        <span class="badge bg-danger">Failed</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <strong>Zoho Email:</strong> {{ job.zoho_email }}
+                        </div>
+                        <div class="mb-3">
+                            <strong>Created:</strong> {{ job.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </div>
+                        {% if job.completed_at %}
+                        <div class="mb-3">
+                            <strong>Completed:</strong> {{ job.completed_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <strong>File:</strong> {{ job.filename }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <strong>Progress:</strong>
+                            <div class="progress mt-2">
+                                <div class="progress-bar bg-primary" role="progressbar" 
+                                    style="width: {{ (job.sent_emails / job.total_emails) * 100 if job.total_emails > 0 else 0 }}%" 
+                                    aria-valuenow="{{ (job.sent_emails / job.total_emails) * 100 if job.total_emails > 0 else 0 }}" 
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    {{ (job.sent_emails / job.total_emails) * 100 if job.total_emails > 0 else 0 }}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Stats -->
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card stats-card bg-light">
+                            <div class="card-body text-center">
+                                <h1 class="display-4 text-primary">{{ job.total_emails }}</h1>
+                                <p class="text-muted mb-0">Total Emails</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card stats-card bg-light">
+                            <div class="card-body text-center">
+                                <h1 class="display-4 text-success">{{ job.sent_emails }}</h1>
+                                <p class="text-muted mb-0">Sent Successfully</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card stats-card bg-light">
+                            <div class="card-body text-center">
+                                <h1 class="display-4 text-danger">{{ job.failed_emails }}</h1>
+                                <p class="text-muted mb-0">Failed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retry Button -->
+                {% if job.failed_email_count > 0 and job.status != 'processing' %}
+                <div class="text-center mt-4">
+                    <form action="{{ url_for('retry_failed', job_id=job.id) }}" method="post">
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="bi bi-arrow-repeat me-2"></i>Retry Failed Emails
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Template Preview -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Email Template</h5>
+            </div>
+            <div class="card-body">
+                <div class="template-preview">{{ job.template | safe }}</div>
+            </div>
+        </div>
+
+        <!-- Failed Emails Table -->
+        {% if failed_emails %}
+        <div class="card shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Failed Emails</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Error</th>
+                                <th>Retry Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for failed in failed_emails %}
+                            <tr>
+                                <td>{{ failed.email }}</td>
+                                <td>{{ failed.first_name }}</td>
+                                <td>{{ failed.error_message }}</td>
+                                <td>{{ failed.retry_count }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Real-time Update Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Only run status updates if job is still processing
+            {% if job.status == 'processing' %}
+            function updateJobStatus() {
+                fetch('/api/job-status/{{ job.id }}')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update progress bar
+                        const progressPercentage = data.total > 0 ? (data.sent / data.total) * 100 : 0;
+                        const progressBar = document.querySelector('.progress-bar');
+                        progressBar.style.width = progressPercentage + '%';
+                        progressBar.setAttribute('aria-valuenow', progressPercentage);
+                        progressBar.textContent = progressPercentage.toFixed(1) + '%';
+                        
+                        // Update stats
+                        document.querySelectorAll('.display-4')[0].textContent = data.total;
+                        document.querySelectorAll('.display-4')[1].textContent = data.sent;
+                        document.querySelectorAll('.display-4')[2].textContent = data.failed;
+                        
+                        // If job is complete, reload the page
+                        if (data.status === 'completed' || data.status === 'failed') {
+                            window.location.reload();
+                        }
+                    });
+            }
+            
+            // Update status every 3 seconds
+            const statusInterval = setInterval(updateJobStatus, 3000);
+            {% endif %}
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

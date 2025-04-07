@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoho Email Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #3498db, #2574a9);
+            color: white;
+            padding: 5rem 0;
+            border-radius: 0 0 2rem 2rem;
+        }
+        .features-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .features-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="bi bi-envelope-paper"></i> Zoho Email Automation
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jobs">View Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light" href="/create_job">Create New Job</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Automate Your Email Campaigns</h1>
+            <p class="lead mb-5">Easily send personalized emails to your contacts using Zoho Mail</p>
+            <a href="/create_job" class="btn btn-light btn-lg px-5 py-3 shadow">Get Started</a>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-primary bg-opacity-10 text-primary">
+                                <i class="bi bi-file-earmark-spreadsheet fs-3"></i>
+                            </div>
+                            <h4 class="mt-4">Upload CSV</h4>
+                            <p class="text-muted">Upload your contact list with email addresses and first names</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-primary bg-opacity-10 text-primary">
+                                <i class="bi bi-file-earmark-text fs-3"></i>
+                            </div>
+                            <h4 class="mt-4">Create Template</h4>
+                            <p class="text-muted">Design your email template with personalization options</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm features-card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-primary bg-opacity-10 text-primary">
+                                <i class="bi bi-send fs-3"></i>
+                            </div>
+                            <h4 class="mt-4">Send Emails</h4>
+                            <p class="text-muted">Let the system send your emails automatically in batches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Ready to automate your email campaigns?</h2>
+                    <p class="mb-4">Save time and effort by automating your email outreach. Our tool makes it easy to send personalized emails to your contacts using your Zoho Mail account.</p>
+                    <a href="/create_job" class="btn btn-primary">Create Your First Email Job</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://via.placeholder.com/600x400" class="img-fluid rounded shadow" alt="Email automation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Zoho Email Automation Tool</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
