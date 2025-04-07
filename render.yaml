@@ -7,7 +7,7 @@ services:
     startCommand: "gunicorn app:app"
     envVars:
       - key: SECRET_KEY
-        value: your_super_secret_key
+        value: "12345abced"
       - key: OAUTHLIB_INSECURE_TRANSPORT
         value: 1
     autoDeploy: true

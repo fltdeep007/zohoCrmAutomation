@@ -6095,3 +6095,24 @@
 2025-04-08 00:53:19,101 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 00:53:19] "GET /jobs HTTP/1.1" 200 -
 2025-04-08 00:53:21,418 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 00:53:21] "GET / HTTP/1.1" 200 -
 2025-04-08 00:53:22,706 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 00:53:22] "GET /create_job HTTP/1.1" 200 -
+2025-04-08 01:05:57,098 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-08 01:05:57,098 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-08 01:05:57,100 - werkzeug - INFO -  * Restarting with stat
+2025-04-08 01:05:59,035 - werkzeug - WARNING -  * Debugger is active!
+2025-04-08 01:05:59,046 - werkzeug - INFO -  * Debugger PIN: 822-265-254
+2025-04-08 01:06:00,122 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:00] "GET /create_job HTTP/1.1" 200 -
+2025-04-08 01:06:09,714 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:09] "[32mGET /authorize?email=deepanshuj288@gmail.com HTTP/1.1[0m" 302 -
+2025-04-08 01:06:16,589 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:16] "[32mGET /oauth2callback?state=Bbs6vhThRL0vnLrh0XqCWeFadP33TR&code=4/0Ab_5qll5nmLnAVTQn9wWb31RcbpeYHw4PaJoFDoXeBfrXO6MLOUP3LCYTVwRtgdCOsJ8iQ&scope=https://www.googleapis.com/auth/gmail.send HTTP/1.1[0m" 302 -
+2025-04-08 01:06:16,605 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:16] "GET /create_job HTTP/1.1" 200 -
+2025-04-08 01:06:35,126 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:35] "[32mPOST /create_job HTTP/1.1[0m" 302 -
+2025-04-08 01:06:35,171 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:35] "GET /job/5 HTTP/1.1" 200 -
+2025-04-08 01:06:35,218 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-04-08 01:06:36,349 - __main__ - INFO - Successfully sent email to test1@example.com, Message ID: 19611c1327b24ea0
+2025-04-08 01:06:36,460 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-04-08 01:06:37,357 - __main__ - INFO - Successfully sent email to deepanshuj288@gmail.com, Message ID: 19611c13659c05c9
+2025-04-08 01:06:37,471 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-04-08 01:06:38,348 - __main__ - INFO - Successfully sent email to dee.jai.rt21@dypatil.edu, Message ID: 19611c138fc23dad
+2025-04-08 01:06:38,378 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:38] "GET /api/job-status/5 HTTP/1.1" 200 -
+2025-04-08 01:06:41,375 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:41] "GET /api/job-status/5 HTTP/1.1" 200 -
+2025-04-08 01:06:41,389 - werkzeug - INFO - 127.0.0.1 - - [08/Apr/2025 01:06:41] "GET /job/5 HTTP/1.1" 200 -

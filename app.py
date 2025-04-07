@@ -19,7 +19,9 @@ import os
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'
+
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_key_fallback')
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///email_automation.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'uploads'
