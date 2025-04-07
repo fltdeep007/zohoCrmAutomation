@@ -16,6 +16,13 @@ from google_auth_oauthlib.flow import Flow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import os
+import base64
+
+# Decode client_secret.json from environment variable
+if not os.path.exists('client_secret.json') and os.environ.get('GOOGLE_CLIENT_SECRET_BASE64'):
+    with open('client_secret.json', 'wb') as f:
+        f.write(base64.b64decode(os.environ['GOOGLE_CLIENT_SECRET_BASE64']))
+
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 app = Flask(__name__)
