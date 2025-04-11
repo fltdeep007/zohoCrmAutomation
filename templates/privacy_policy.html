@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Email Job - Email Automation with Zoho CRM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <style>
+      .form-section {
+        border-radius: 0.5rem;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+      }
+      .drop-zone {
+        border: 2px dashed #ccc;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .drop-zone:hover,
+      .drop-zone.drag-over {
+        border-color: #3498db;
+        background-color: rgba(52, 152, 219, 0.05);
+      }
+      .drop-zone-prompt {
+        font-size: 1.2rem;
+        color: #555;
+      }
+      .template-preview {
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        min-height: 100px;
+      }
+      .oauth-section {
+        text-align: center;
+        padding: 2rem;
+      }
+      .oauth-button {
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+      }
+      .authentication-info {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .tab-content {
+        padding-top: 1.5rem;
+      }
+      .template-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+      }
+      .template-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+      .template-card.selected {
+        border-color: #28a745;
+      }
+      #loadingSpinner {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="bi bi-envelope-paper"></i> Email Automation with Zoho CRM
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs">View Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/create_job">Create New Job</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<div class="container my-5">
+    <h1 class="mb-4">Privacy Policy</h1>
+    <p class="mb-4">Last updated: April 12, 2025</p>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">1. Introduction</h2>
+            <p>Welcome to the Email Automation Tool ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our application.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">2. Information We Collect</h2>
+            <p>We collect the following types of information:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Email addresses used for authentication with Gmail and Zoho CRM.</li>
+                <li><strong>OAuth Tokens:</strong> We store authentication tokens to access Gmail and Zoho CRM services on your behalf.</li>
+                <li><strong>Email Campaign Data:</strong> Contact information including email addresses and first names from your uploaded CSV files.</li>
+                <li><strong>Email Templates:</strong> Content of email templates you create or import from Zoho CRM.</li>
+                <li><strong>Usage Data:</strong> Information about your use of our application, including email campaign metrics.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">3. How We Use Your Information</h2>
+            <p>We use your information for the following purposes:</p>
+            <ul>
+                <li>To provide and maintain our service</li>
+                <li>To authenticate with Gmail and Zoho CRM on your behalf</li>
+                <li>To send emails to your contacts as directed by you</li>
+                <li>To monitor and improve our application's performance</li>
+                <li>To detect and prevent technical issues or unauthorized access</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">4. Data Storage and Security</h2>
+            <p>We implement appropriate security measures to protect your personal information:</p>
+            <ul>
+                <li>All data is stored in a secure MongoDB database</li>
+                <li>Authentication tokens are securely stored and managed</li>
+                <li>We use secure connections (HTTPS) for all data transfers</li>
+                <li>CSV files containing contact information are stored only for the duration needed to process your email campaigns</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">5. Third-Party Services</h2>
+            <p>Our application integrates with the following third-party services:</p>
+            <ul>
+                <li><strong>Gmail:</strong> Used to send emails through your account</li>
+                <li><strong>Zoho CRM:</strong> Used to retrieve email templates and contact information</li>
+            </ul>
+            <p>Your use of these services is subject to their respective privacy policies:</p>
+            <ul>
+                <li>Gmail (Google): <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+                <li>Zoho CRM: <a href="https://www.zoho.com/privacy.html" target="_blank">https://www.zoho.com/privacy.html</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">6. Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access the personal data we hold about you</li>
+                <li>Request correction of your personal data</li>
+                <li>Request deletion of your data from our systems</li>
+                <li>Withdraw consent for using your data at any time</li>
+                <li>Request a copy of your data in a structured, machine-readable format</li>
+            </ul>
+            <p>To exercise these rights, please contact us at [your contact email].</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">7. Updates to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">8. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at [your contact email].</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Email Automation with Zoho CRM</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="{{ url_for('privacy_policy') }}" class="text-white me-3">Privacy Policy</a>
+          <a href="{{ url_for('terms_of_service') }}" class="text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

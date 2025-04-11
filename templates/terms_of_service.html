@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Email Job - Email Automation with Zoho CRM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <style>
+      .form-section {
+        border-radius: 0.5rem;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+      }
+      .drop-zone {
+        border: 2px dashed #ccc;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .drop-zone:hover,
+      .drop-zone.drag-over {
+        border-color: #3498db;
+        background-color: rgba(52, 152, 219, 0.05);
+      }
+      .drop-zone-prompt {
+        font-size: 1.2rem;
+        color: #555;
+      }
+      .template-preview {
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        min-height: 100px;
+      }
+      .oauth-section {
+        text-align: center;
+        padding: 2rem;
+      }
+      .oauth-button {
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+      }
+      .authentication-info {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .tab-content {
+        padding-top: 1.5rem;
+      }
+      .template-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+      }
+      .template-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+      .template-card.selected {
+        border-color: #28a745;
+      }
+      #loadingSpinner {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="bi bi-envelope-paper"></i> Email Automation with Zoho CRM
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs">View Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/create_job">Create New Job</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<div class="container my-5">
+    <h1 class="mb-4">Terms of Service</h1>
+    <p class="mb-4">Last updated: April 12, 2025</p>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">1. Acceptance of Terms</h2>
+            <p>By accessing or using our Email Automation Tool ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, you may not access the Service.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">2. Description of Service</h2>
+            <p>Our Service allows users to create and send email campaigns through their Gmail accounts, with integration to Zoho CRM for template management. The Service requires authentication with these third-party platforms to function properly.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">3. User Accounts and Authentication</h2>
+            <p>To use our Service, you must authorize access to your Gmail and/or Zoho CRM accounts through OAuth 2.0. You are responsible for maintaining the security of your accounts and authentication tokens. We cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">4. User Content and Responsibilities</h2>
+            <p>You are solely responsible for:</p>
+            <ul>
+                <li>All content sent through our Service using your accounts</li>
+                <li>Ensuring you have proper consent to email the recipients in your contact lists</li>
+                <li>Complying with all applicable laws regarding email communications, including anti-spam laws such as CAN-SPAM Act, GDPR, CASL, and other regulations</li>
+                <li>The accuracy and legality of any information uploaded to our Service</li>
+            </ul>
+            <p>You agree not to use our Service to send unsolicited commercial email ("spam"), misleading or deceptive content, or any content that is unlawful, harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">5. Service Limitations and Quotas</h2>
+            <p>Our Service is subject to the limitations and quotas imposed by third-party services:</p>
+            <ul>
+                <li>Gmail's sending limits (typically 500 emails per day for personal accounts, 2,000 for Google Workspace accounts)</li>
+                <li>Zoho CRM's API rate limits</li>
+            </ul>
+            <p>We are not responsible for delays, delivery failures, or other damage resulting from these limitations.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">6. Intellectual Property</h2>
+            <p>The Service and its original content, features, and functionality are and will remain the exclusive property of [Your Company Name] and its licensors. The Service is protected by copyright, trademark, and other laws. Our trademarks and trade dress may not be used in connection with any product or service without prior written consent.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">7. Termination</h2>
+            <p>We may terminate or suspend your access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the Service will immediately cease.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">8. Limitation of Liability</h2>
+            <p>In no event shall [Your Company Name], nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+            <ul>
+                <li>Your access to or use of or inability to access or use the Service</li>
+                <li>Any conduct or content of any third party on the Service</li>
+                <li>Any content obtained from the Service</li>
+                <li>Unauthorized access, use or alteration of your transmissions or content</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">9. Disclaimer</h2>
+            <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">10. Governing Law</h2>
+            <p>These Terms shall be governed and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law provisions.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">11. Changes to Terms</h2>
+            <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">12. Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us at [your contact email].</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 Email Automation with Zoho CRM</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="{{ url_for('privacy_policy') }}" class="text-white me-3">Privacy Policy</a>
+          <a href="{{ url_for('terms_of_service') }}" class="text-white">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
