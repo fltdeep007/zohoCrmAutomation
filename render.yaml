@@ -8,6 +8,4 @@ services:
     envVars:
       - key: SECRET_KEY
         value: "12345abced"
-      - key: OAUTHLIB_INSECURE_TRANSPORT
-        value: 1
     autoDeploy: true

@@ -7953,3 +7953,7 @@
 2025-04-11 22:47:23,389 - werkzeug - INFO -  * Debugger PIN: 822-265-254
 2025-04-11 22:48:16,723 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Somiljain\\Desktop\\crm auto\\app.py', reloading
 2025-04-11 22:48:17,041 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 03:36:16,205 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-12 03:36:16,206 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 03:36:16,207 - werkzeug - INFO -  * Restarting with stat
