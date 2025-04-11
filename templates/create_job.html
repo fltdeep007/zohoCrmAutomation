@@ -1,288 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Email Job - Gmail Email Automation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Email Job - Email Automation with Zoho CRM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
     <style>
-        .form-section {
-            border-radius: 0.5rem;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
-        }
-        .drop-zone {
-            border: 2px dashed #ccc;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .drop-zone:hover, .drop-zone.drag-over {
-            border-color: #3498db;
-            background-color: rgba(52, 152, 219, 0.05);
-        }
-        .drop-zone-prompt {
-            font-size: 1.2rem;
-            color: #555;
-        }
-        .template-preview {
-            border: 1px solid #e9ecef;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            min-height: 100px;
-        }
-        .oauth-section {
-            text-align: center;
-            padding: 2rem;
-        }
-        .oauth-button {
-            padding: 0.75rem 2rem;
-            font-size: 1.1rem;
-        }
-        .authentication-info {
-            background-color: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
+      .form-section {
+        border-radius: 0.5rem;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+      }
+      .drop-zone {
+        border: 2px dashed #ccc;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .drop-zone:hover,
+      .drop-zone.drag-over {
+        border-color: #3498db;
+        background-color: rgba(52, 152, 219, 0.05);
+      }
+      .drop-zone-prompt {
+        font-size: 1.2rem;
+        color: #555;
+      }
+      .template-preview {
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        min-height: 100px;
+      }
+      .oauth-section {
+        text-align: center;
+        padding: 2rem;
+      }
+      .oauth-button {
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+      }
+      .authentication-info {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .tab-content {
+        padding-top: 1.5rem;
+      }
+      .template-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+      }
+      .template-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+      .template-card.selected {
+        border-color: #28a745;
+      }
+      #loadingSpinner {
+        display: none;
+      }
     </style>
-</head>
-<body class="bg-light">
+  </head>
+  <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="bi bi-envelope-paper"></i> Gmail Email Automation
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jobs">View Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/create_job">Create New Job</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="bi bi-envelope-paper"></i> Email Automation with Zoho CRM
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/jobs">View Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/create_job">Create New Job</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-white py-3">
-                        <h3 class="card-title mb-0">Create New Email Job</h3>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white py-3">
+              <h3 class="card-title mb-0">Create New Email Job</h3>
+            </div>
+            <div class="card-body p-4">
+              <!-- Flash Messages -->
+              {% with messages = get_flashed_messages() %} {% if messages %} {%
+              for message in messages %}
+              <div
+                class="alert alert-info alert-dismissible fade show"
+                role="alert"
+              >
+                {{ message }}
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+              {% endfor %} {% endif %} {% endwith %} {% if not
+              gmail_authenticated %}
+              <!-- Step 1: Gmail OAuth Authentication -->
+              <div class="form-section p-4 mb-4 bg-light">
+                <h4 class="mb-3 text-center">
+                  <i class="bi bi-google me-2 text-danger"></i>
+                  Gmail Authentication
+                </h4>
+                <div class="oauth-section">
+                  <p class="mb-4">
+                    To send emails through Gmail, you need to authorize this
+                    application first.
+                  </p>
+                  <form action="{{ url_for('authorize') }}" method="get">
+                    <div class="row justify-content-center">
+                      <div class="col-md-8 mb-3">
+                        <label for="email" class="form-label"
+                          >Your Gmail Address</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control form-control-lg"
+                          id="email"
+                          name="email"
+                          value="{{ sender_email }}"
+                          placeholder="your.email@gmail.com"
+                          required
+                        />
+                      </div>
                     </div>
-                    <div class="card-body p-4">
-                        <!-- Flash Messages -->
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        {{ message }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
+                    <button type="submit" class="btn btn-danger oauth-button">
+                      <i class="bi bi-google me-2"></i>
+                      Authenticate with Google
+                    </button>
+                  </form>
+                </div>
+              </div>
+              {% else %}
+              <form method="POST" enctype="multipart/form-data">
+                <!-- Gmail Authentication Info -->
+                <div class="authentication-info mb-4">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <i
+                        class="bi bi-check-circle-fill text-success fs-4 me-2"
+                      ></i>
+                      <div>
+                        <strong>Authenticated with Gmail</strong><br />
+                        <span class="text-muted">{{ sender_email }}</span>
+                        <input
+                          type="hidden"
+                          name="sender_email"
+                          value="{{ sender_email }}"
+                        />
+                      </div>
+                    </div>
+                    <a href="{{ url_for('logout_gmail') }}" class="btn btn-outline-secondary btn-sm">
+                      <i class="bi bi-arrow-repeat me-1"></i>
+                      Switch Account
+                    </a>
+                  </div>
+                </div>
 
-                        {% if not authenticated %}
-                        <!-- Step 1: Gmail OAuth Authentication -->
-                        <div class="form-section p-4 mb-4 bg-light">
-                            <h4 class="mb-3 text-center">
-                                <i class="bi bi-google me-2 text-danger"></i>
-                                Gmail Authentication
-                            </h4>
-                            <div class="oauth-section">
-                                <p class="mb-4">To send emails through Gmail, you need to authorize this application first.</p>
-                                <form action="{{ url_for('authorize') }}" method="get">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8 mb-3">
-                                            <label for="email" class="form-label">Your Gmail Address</label>
-                                            <input type="email" class="form-control form-control-lg" id="email" name="email" 
-                                                value="{{ sender_email }}" placeholder="your.email@gmail.com" required>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-danger oauth-button">
-                                        <i class="bi bi-google me-2"></i>
-                                        Authenticate with Google
-                                    </button>
-                                </form>
-                            </div>
+                <!-- Zoho CRM Authentication -->
+                {% if not zoho_authenticated %}
+                <div class="form-section p-4 mb-4 bg-white border">
+                  <h4 class="mb-3">
+                    <i class="bi bi-cloud me-2 text-primary"></i>
+                    Zoho CRM Integration (Optional)
+                  </h4>
+                  <p class="mb-3">
+                    Connect to Zoho CRM to access your email templates.
+                  </p>
+                  <div class="text-center">
+                    <a
+                      href="{{ url_for('zoho_authorize', email=sender_email) }}"
+                      class="btn btn-outline-primary"
+                    >
+                      <i class="bi bi-link-45deg me-2"></i>
+                      Connect with Zoho CRM
+                    </a>
+                  </div>
+                </div>
+                {% else %}
+                <div
+                  class="authentication-info mb-4 bg-info bg-opacity-10 border-info"
+                >
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-check-circle-fill text-info fs-4 me-2"></i>
+                      <div>
+                        <strong>Connected with Zoho CRM</strong><br />
+                        <span class="text-muted"
+                          >You can now access your Zoho email templates</span
+                        >
+                      </div>
+                    </div>
+                    <a href="{{ url_for('logout_zoho') }}" class="btn btn-outline-secondary btn-sm">
+                      <i class="bi bi-arrow-repeat me-1"></i>
+                      Switch Account
+                    </a>
+                  </div>
+                </div>
+                {% endif %}
+
+                <!-- Step 2: Email Subject -->
+                <div class="form-section p-4 mb-4 bg-light">
+                  <h4 class="mb-3">
+                    <i class="bi bi-envelope me-2 text-primary"></i>
+                    Email Details
+                  </h4>
+                  <div class="mb-3">
+                    <label for="subject" class="form-label"
+                      >Email Subject</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="subject"
+                      name="subject"
+                      placeholder="Your email subject line"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Step 3: Upload CSV -->
+                <div class="form-section p-4 mb-4 bg-light">
+                  <h4 class="mb-3">
+                    <i
+                      class="bi bi-file-earmark-spreadsheet me-2 text-primary"
+                    ></i>
+                    Upload Contact List
+                  </h4>
+                  <div class="drop-zone" id="dropZone">
+                    <span class="drop-zone-prompt"
+                      >Drop CSV file here or click to upload</span
+                    >
+                    <input
+                      type="file"
+                      id="csv_file"
+                      name="csv_file"
+                      class="d-none"
+                      accept=".csv"
+                      required
+                    />
+                  </div>
+                  <div id="file-info" class="mt-3 d-none">
+                    <div class="d-flex align-items-center">
+                      <i
+                        class="bi bi-file-earmark-text fs-4 me-2 text-primary"
+                      ></i>
+                      <span id="file-name" class="me-2"></span>
+                      <button
+                        type="button"
+                        id="remove-file"
+                        class="btn btn-sm btn-outline-danger"
+                      >
+                        <i class="bi bi-x"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="form-text mt-2">
+                    <strong>Note:</strong> The CSV file must contain 'email' and
+                    'first_name' columns.
+                  </div>
+                </div>
+  
+                <!-- Step 4: Email Template (Tabbed Interface) -->
+                <div class="form-section p-4 mb-4 bg-light">
+                  <h4 class="mb-3">
+                    <i class="bi bi-file-earmark-text me-2 text-primary"></i>
+                    Email Template
+                  </h4>
+  
+                  <!-- Template tabs -->
+                <ul class="nav nav-tabs" id="templateTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class="nav-link active"
+                        id="custom-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#custom-template"
+                        type="button"
+                        role="tab"
+                      >
+                        Custom Template
+                      </button>
+                    </li>
+                    {% if zoho_authenticated %}
+                    <li class="nav-item" role="presentation">
+                      <button
+                        class="nav-link"
+                        id="zoho-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#zoho-templates"
+                        type="button"
+                        role="tab"
+                      >
+                        Zoho CRM Templates
+                      </button>
+                    </li>
+                    {% endif %}
+                  </ul>
+                  
+                  <div class="tab-content" id="templateTabsContent">
+                    <!-- Custom Template Tab -->
+                    <div
+                      class="tab-pane fade show active"
+                      id="custom-template"
+                      role="tabpanel"
+                    >
+                      <input
+                        type="hidden"
+                        name="template_source"
+                        id="template_source"
+                        value="custom"
+                      />
+                      <div class="form-group mt-3">
+                        <label for="email_template">Email Template (HTML)</label>
+                        <textarea
+                          class="form-control"
+                          id="email_template"
+                          name="email_template"
+                          rows="10"
+                        ></textarea>
+                      </div>
+                    </div>
+                    
+                    <!-- Zoho Templates Tab -->
+                    {% if zoho_authenticated %}
+                    <div
+                      class="tab-pane fade"
+                      id="zoho-templates"
+                      role="tabpanel"
+                    >
+                      <div class="form-group mt-3">
+                        <label for="template_id">Select Zoho Template</label>
+                        <select class="form-control" id="template_id" name="template_id">
+                          <option value="">-- Select a template --</option>
+                          {% for template in zoho_templates %}
+                            <option value="{{ template.id }}">{{ template.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                      
+                      <div class="mt-3">
+                        <button type="button" id="preview-template" class="btn btn-secondary">Preview Template</button>
+                      </div>
+                      
+                      <div id="template-preview-container" class="mt-3" style="display: none;">
+                        <h4>Template Preview</h4>
+                        <div id="template-preview" class="border p-3"></div>
+                        
+                        <div class="form-group mt-3">
+                          <label for="edited_template">Edit Template (if needed)</label>
+                          <textarea
+                            class="form-control"
+                            id="edited_template"
+                            name="edited_template"
+                            rows="10"
+                          ></textarea>
                         </div>
-                        {% else %}
-                        <form method="POST" enctype="multipart/form-data">
-                            <!-- Authentication Info -->
-                            <div class="authentication-info mb-4">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
-                                    <div>
-                                        <strong>Authenticated with Gmail</strong><br>
-                                        <span class="text-muted">{{ sender_email }}</span>
-                                        <input type="hidden" name="sender_email" value="{{ sender_email }}">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Step 2: Email Subject -->
-                            <div class="form-section p-4 mb-4 bg-light">
-                                <h4 class="mb-3">
-                                    <i class="bi bi-envelope me-2 text-primary"></i>
-                                    Email Details
-                                </h4>
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Email Subject</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" 
-                                           placeholder="Your email subject line" required>
-                                </div>
-                            </div>
-
-                            <!-- Step 3: Upload CSV -->
-                            <div class="form-section p-4 mb-4 bg-light">
-                                <h4 class="mb-3">
-                                    <i class="bi bi-file-earmark-spreadsheet me-2 text-primary"></i>
-                                    Upload Contact List
-                                </h4>
-                                <div class="drop-zone" id="dropZone">
-                                    <span class="drop-zone-prompt">Drop CSV file here or click to upload</span>
-                                    <input type="file" id="csv_file" name="csv_file" class="d-none" accept=".csv" required>
-                                </div>
-                                <div id="file-info" class="mt-3 d-none">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-file-earmark-text fs-4 me-2 text-primary"></i>
-                                        <span id="file-name" class="me-2"></span>
-                                        <button type="button" id="remove-file" class="btn btn-sm btn-outline-danger">
-                                            <i class="bi bi-x"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="form-text mt-2">
-                                    <strong>Note:</strong> The CSV file must contain 'email' and 'first_name' columns.
-                                </div>
-                            </div>
-
-                            <!-- Step 4: Email Template -->
-                            <div class="form-section p-4 mb-4 bg-light">
-                                <h4 class="mb-3">
-                                    <i class="bi bi-file-earmark-text me-2 text-primary"></i>
-                                    Email Template
-                                </h4>
-                                <div class="mb-3">
-                                    <label for="email_template" class="form-label">HTML Email Template</label>
-                                    <textarea class="form-control" id="email_template" name="email_template" rows="8" required></textarea>
-                                    <div class="form-text">
-                                        Use <code>{{first_name}}</code> to personalize your email.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Template Preview</label>
-                                    <div class="template-preview" id="template-preview">
-                                        <p class="text-muted">Template preview will appear here...</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-send me-2"></i>
-                                    Create and Start Job
-                                </button>
-                            </div>
-                        </form>
-                        {% endif %}
+                      </div>
                     </div>
+                    {% endif %}
+                  </div>
                 </div>
+  
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="bi bi-send me-2"></i>
+                    Create and Start Job
+                  </button>
+                </div>
+              </form>
+              {% endif %}
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
+  
     <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Gmail Email Automation Tool</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white me-3">Privacy Policy</a>
-                    <a href="#" class="text-white">Terms of Service</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="mb-0">&copy; 2025 Email Automation with Zoho CRM</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="text-white me-3">Privacy Policy</a>
+            <a href="#" class="text-white">Terms of Service</a>
+          </div>
         </div>
+      </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // File drop zone functionality
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('csv_file');
-        const fileInfo = document.getElementById('file-info');
-        const fileName = document.getElementById('file-name');
-        const removeFile = document.getElementById('remove-file');
-        const templateInput = document.getElementById('email_template');
-        const templatePreview = document.getElementById('template-preview');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
 
-        // Only initialize if elements exist (conditional rendering)
-        if (dropZone && fileInput) {
-            // Handle file drop
-            dropZone.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                dropZone.classList.add('drag-over');
-            });
-
-            dropZone.addEventListener('dragleave', () => {
-                dropZone.classList.remove('drag-over');
-            });
-
-            dropZone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                dropZone.classList.remove('drag-over');
-                
-                if (e.dataTransfer.files.length) {
-                    fileInput.files = e.dataTransfer.files;
-                    updateFileInfo();
-                }
-            });
-
-            // Handle file selection by click
-            dropZone.addEventListener('click', () => {
-                fileInput.click();
-            });
-
-            fileInput.addEventListener('change', updateFileInfo);
-
-            function updateFileInfo() {
-                if (fileInput.files.length) {
-                    fileInfo.classList.remove('d-none');
-                    fileName.textContent = fileInput.files[0].name;
-                    dropZone.style.display = 'none';
-                }
-            }
-
-            // Remove selected file
-            removeFile.addEventListener('click', () => {
-                fileInput.value = '';
-                fileInfo.classList.add('d-none');
-                dropZone.style.display = 'block';
-            });
+      // Handle tab switching
+      const tabs = document.querySelectorAll('button[data-bs-toggle="tab"]');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Update template source based on active tab
+          if (this.id === 'custom-tab') {
+            document.getElementById('template_source').value = 'custom';
+          } else if (this.id === 'zoho-tab') {
+            document.getElementById('template_source').value = 'zoho';
+          }
+        });
+      });
+      
+      // Handle template preview
+      const previewBtn = document.getElementById('preview-template');
+if (previewBtn) {
+  previewBtn.addEventListener('click', function() {
+    const templateId = document.getElementById('template_id').value;
+    if (!templateId) {
+      alert('Please select a template first');
+      return;
+    }
+    
+    // Show loading indicator
+    document.getElementById('template-preview').innerHTML = 'Loading template...';
+    document.getElementById('template-preview-container').style.display = 'block';
+    
+    // Fetch template content with improved error handling
+    fetch(`/api/zoho/template/${templateId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-
-        // Preview template if element exists
-        if (templateInput && templatePreview) {
-            templateInput.addEventListener('input', updatePreview);
-
-            function updatePreview() {
-                const template = templateInput.value;
-                templatePreview.innerHTML = template.replace('{{first_name}}', 'John');
-            }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          try {
+            // Get content field from the response
+            const content = data.content || 
+              (data.template && data.template.content) || 
+              '';
+              
+            // Format content for display (replacing newlines and Zoho merge fields)
+            const formattedContent = content
+              .replace(/\r\n/g, '<br>')
+              .replace(/\n/g, '<br>')
+              .replace(/\${!Contacts\.([^}]+)}/g, '<span class="badge bg-secondary">$1</span>')
+              .replace(/\${!Deals\.([^}]+)}/g, '<span class="badge bg-secondary">$1</span>')
+              .replace(/\${!users\.([^}]+)}/g, '<span class="badge bg-secondary">$1</span>')
+              .replace(/\${!org\.([^}]+)}/g, '<span class="badge bg-secondary">Company</span>');
+              
+            // Display preview with formatted content
+            document.getElementById('template-preview').innerHTML = formattedContent;
+            
+            // Populate edit field with raw content
+            document.getElementById('edited_template').value = content;
+          } catch (e) {
+            console.error('Template rendering error:', e);
+            document.getElementById('template-preview').innerHTML = 'Error rendering template: ' + e.message;
+          }
+        } else {
+          document.getElementById('template-preview').innerHTML = 'Failed to load template: ' + (data.message || 'Unknown error');
         }
-    </script>
-</body>
+      })
+      .catch(error => {
+        console.error('Template fetch error:', error);
+        document.getElementById('template-preview').innerHTML = 'Error loading template: ' + error.message;
+      });
+  });
+}
+
+    const dropZone = document.getElementById("dropZone");
+const fileInput = document.getElementById("csv_file");
+const fileInfo = document.getElementById("file-info");
+const fileName = document.getElementById("file-name");
+const removeFile = document.getElementById("remove-file");
+const templateInput = document.getElementById("email_template");
+const templatePreview = document.getElementById("template-preview");
+
+// Only initialize if elements exist
+if (dropZone && fileInput) {
+  // Handle file drop
+  dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("drag-over");
+  });
+
+  dropZone.addEventListener("dragleave", () => {
+    dropZone.classList.remove("drag-over");
+  });
+
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+
+    if (e.dataTransfer.files.length) {
+      fileInput.files = e.dataTransfer.files;
+      updateFileInfo();
+    }
+  });
+
+  // Handle file selection by click
+  dropZone.addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener("change", updateFileInfo);
+
+  function updateFileInfo() {
+    if (fileInput.files.length) {
+      fileInfo.classList.remove("d-none");
+      fileName.textContent = fileInput.files[0].name;
+      dropZone.style.display = "none";
+    }
+  }
+
+  // Remove selected file
+  if (removeFile) {
+    removeFile.addEventListener("click", () => {
+      fileInput.value = "";
+      fileInfo.classList.add("d-none");
+      dropZone.style.display = "block";
+    });
+  }
+}
+
+// Preview custom template
+if (templateInput && templatePreview) {
+  templateInput.addEventListener("input", function() {
+    templatePreview.innerHTML = this.value.replace("{{first_name}}", "John");
+  });
+}
+})
+  </script>
 </html>
