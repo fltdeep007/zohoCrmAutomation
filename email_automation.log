@@ -7957,3 +7957,14 @@
  * Running on http://127.0.0.1:5000
 2025-04-12 03:36:16,206 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
 2025-04-12 03:36:16,207 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 05:26:22,084 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-12 05:26:22,084 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 05:26:22,086 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 05:26:23,198 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 05:26:23,202 - werkzeug - INFO -  * Debugger PIN: 822-265-254
+2025-04-12 05:26:24,766 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 05:26:24] "GET / HTTP/1.1" 200 -
+2025-04-12 05:26:25,650 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 05:26:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-12 05:26:26,359 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 05:26:26] "GET /create_job HTTP/1.1" 200 -
+2025-04-12 05:26:27,508 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 05:26:27] "[32mGET /authorize?email=vnitinter@gmail.com HTTP/1.1[0m" 302 -
+2025-04-12 05:26:43,835 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 05:26:43] "GET /jobs HTTP/1.1" 200 -

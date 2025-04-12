@@ -27,13 +27,13 @@ if not os.path.exists('client_secret.json') and os.environ.get('GOOGLE_CLIENT_SE
     with open('client_secret.json', 'wb') as f:
         f.write(base64.b64decode(os.environ['GOOGLE_CLIENT_SECRET_BASE64']))
 
-# os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 # MongoDB configuration
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI' , "mongodb://localhost:27017/crmEmail")
 mongo = PyMongo(app)
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
