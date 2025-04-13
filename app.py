@@ -774,8 +774,14 @@ def logout_zoho():
 
 @app.route('/jobs')
 def jobs_list():
-    # Get all jobs sorted by creation date (newest first)
-    jobs = list(email_jobs.find().sort('created_at', -1))
+    # Check if user is authenticated
+    email = session.get('email')
+    if not email:
+        flash('Please log in to view your jobs')
+        return redirect(url_for('index'))
+    
+    # Get only jobs created by this user, sorted by creation date (newest first)
+    jobs = list(email_jobs.find({'sender_email': email}).sort('created_at', -1))
     
     # Convert ObjectId to string for each job
     for job in jobs:
