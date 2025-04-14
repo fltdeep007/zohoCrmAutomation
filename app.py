@@ -20,6 +20,19 @@ import aiohttp
 import asyncio
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import re
+from flask_wtf.csrf import CSRFProtect
+
+
+
+app = Flask(__name__)
+csrf = CSRFProtect(app)
+COMBINED_SCOPES = [
+    'https://www.googleapis.com/auth/gmail.send',
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email',
+    'openid'
+]
 
 
 # Decode client_secret.json from environment variable
@@ -27,13 +40,13 @@ if not os.path.exists('client_secret.json') and os.environ.get('GOOGLE_CLIENT_SE
     with open('client_secret.json', 'wb') as f:
         f.write(base64.b64decode(os.environ['GOOGLE_CLIENT_SECRET_BASE64']))
 
-# os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-app = Flask(__name__)
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 # MongoDB configuration
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['MONGO_URI'] = os.environ.get('MONGO_URI', "mongodb://localhost:27017/crmEmail")
 mongo = PyMongo(app)
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -78,6 +91,8 @@ with app.app_context():
     failed_emails.create_index([('job_id', 1)])
     zoho_credentials.create_index([('user_email', 1)], unique=True)
 
+    
+
 # OAuth Helper Functions for Gmail
 def get_oauth_flow():
     """Create and return OAuth 2.0 flow instance for Gmail"""
@@ -87,6 +102,11 @@ def get_oauth_flow():
         redirect_uri=url_for('oauth2callback', _external=True)
     )
     return flow
+
+def is_valid_email(email):
+    """Validate email format"""
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    return bool(re.match(pattern, email))
 
 def get_gmail_credentials(token_file):
     """Get valid user credentials from storage for Gmail."""
@@ -304,6 +324,9 @@ async def get_zoho_template_content(user_email, template_id):
 def send_email_via_gmail_api(sender_email, recipient_email, first_name, template, subject, token_file):
     """Send email using Gmail API with OAuth 2.0"""
     try:
+        if not is_valid_email(sender_email):
+            flash('Invalid sender email format')
+            return redirect(request.url)
         # Replace placeholders in template
         personalized_template = template.replace('{{first_name}}', first_name)
         
@@ -476,6 +499,61 @@ def retry_failed_emails(job_id):
 def index():
     return render_template('index.html')
 
+# Middleware to check authentication status
+@app.before_request
+def check_auth_status():
+    """Check if user is logged in and credentials are valid"""
+    # Skip for static files and authentication routes
+    if request.path.startswith('/static') or request.path in ['/login', '/login/callback', '/logout', '/']:
+        return
+    
+    # Check if user is logged in
+    if not session.get('logged_in'):
+        # Redirect to login for protected routes
+        if request.path not in ['/privacy-policy', '/terms-of-service'] and not request.path.startswith('/api'):
+            flash('Please sign in to access this page')
+            return redirect(url_for('login'))
+        return
+    
+    token_path = session.get('token_path')
+    if not token_path or not os.path.exists(token_path):
+        # Token file is missing, try to recreate from session credentials
+        credentials_data = session.get('credentials')
+        if credentials_data:
+            try:
+                credentials = Credentials(
+                    token=credentials_data.get('token'),
+                    refresh_token=credentials_data.get('refresh_token'),
+                    token_uri=credentials_data.get('token_uri'),
+                    client_id=credentials_data.get('client_id'),
+                    client_secret=credentials_data.get('client_secret'),
+                    scopes=credentials_data.get('scopes')
+                )
+                
+                # Refresh the token if expired
+                if credentials.expired:
+                    credentials.refresh(Request())
+                    # Update session credentials
+                    session['credentials']['token'] = credentials.token
+                
+                # Create a new token file
+                if credentials.valid:
+                    new_token_filename = f"{session.get('email', 'user').replace('@', '_at_').replace('.', '_dot_')}_{int(time.time())}.pickle"
+                    new_token_path = os.path.join(app.config['OAUTH_CREDENTIALS_DIR'], new_token_filename)
+                    
+                    with open(new_token_path, 'wb') as token:
+                        pickle.dump(credentials, token)
+                    
+                    session['token_path'] = new_token_path
+                    return
+            except Exception as e:
+                logger.error(f"Error recreating token file: {str(e)}")
+
+    # If we get here, authentication has failed
+        session.clear()
+        flash('Your session has expired. Please sign in again.')
+        return redirect(url_for('login'))
+
 @app.route('/authorize')
 def authorize():
     """Start the OAuth flow for Gmail"""
@@ -630,21 +708,25 @@ def get_zoho_template_api(template_id):
 
 @app.route('/create_job', methods=['GET', 'POST'])
 def create_job():
+    # Check if user is logged in
+    if not session.get('logged_in'):
+        flash('Please sign in first')
+        return redirect(url_for('login'))
+    
     if request.method == 'POST':
         # Get form data
-        sender_email = request.form.get('sender_email')
+        sender_email = request.form.get('sender_email', session.get('email', ''))
         subject = request.form.get('subject', 'No Subject')
         template_source = request.form.get('template_source', 'custom')
         template_id = request.form.get('template_id') if template_source == 'zoho' else None
         template = ""
         
-        # Check if authentication is done
+        # Use token_path from session (already authenticated user)
         token_path = session.get('token_path')
         if not token_path or not os.path.exists(token_path):
-            flash('Please authenticate with Gmail first')
-            return redirect(url_for('authorize', email=sender_email))
+            flash('Authentication error. Please sign in again.')
+            return redirect(url_for('login'))
         
-        # Handle template selection
         if template_source == 'custom':
             template = request.form.get('email_template', '')
             
@@ -709,8 +791,6 @@ def create_job():
         result = email_jobs.insert_one(job_data)
         job_id = str(result.inserted_id)
         
-        # Clear session data
-        session.pop('token_path', None)
         
         # Start processing job in background
         thread = threading.Thread(target=process_email_job, args=(job_id,))
@@ -719,11 +799,14 @@ def create_job():
         
         flash(f'Job created successfully. Job ID: {job_id}')
         return redirect(url_for('job_details', job_id=job_id))
+        
+        # Rest of the create_job function remains the same...
+        # [existing code...]
     
-    # For GET requests, check if we have token from OAuth flow
+    # For GET requests
+    sender_email = session.get('email', '')
     token_path = session.get('token_path')
     gmail_authenticated = token_path and os.path.exists(token_path)
-    sender_email = session.get('email', '')
     
     # Check Zoho authentication
     zoho_authenticated = False
@@ -741,6 +824,152 @@ def create_job():
                           zoho_authenticated=zoho_authenticated,
                           sender_email=sender_email,
                           zoho_templates=zoho_templates)
+
+@app.route('/login')
+def login():
+    """Redirect to Google authentication for login with combined scopes"""
+    # Generate a unique state for session
+    state = f"login_{int(time.time())}"
+    session['login_state'] = state
+    
+    # Create flow instance with combined scopes for login and Gmail
+    flow = get_oauth_flow(scopes=COMBINED_SCOPES)
+    
+    # Generate authorization URL
+    authorization_url, state = flow.authorization_url(
+        access_type='offline',
+        include_granted_scopes='true',
+        prompt='consent'  # Force consent screen to get refresh token
+    )
+    
+    # Store the state in the session
+    session['state'] = state
+    
+    # Redirect to Google's OAuth 2.0 server
+    return redirect(authorization_url)
+
+@app.route('/login/callback')
+def login_callback():
+    """Handle the OAuth 2.0 callback for login with combined scopes"""
+    # Retrieve state from session
+    state = session.get('state')
+    
+    if not state:
+        flash('Session expired or invalid. Please try again.')
+        return redirect(url_for('index'))
+    
+    # Create flow instance with combined scopes
+    flow = get_oauth_flow(scopes=COMBINED_SCOPES)
+    
+    try:
+        # Use the authorization server's response to fetch the OAuth 2.0 tokens
+        flow.fetch_token(authorization_response=request.url)
+        
+        # Get user info using the credentials
+        credentials = flow.credentials
+        user_info = get_user_info(credentials)
+        
+        if user_info:
+            # Store user information in session
+            session['user_info'] = user_info
+            session['email'] = user_info.get('email')
+            session['logged_in'] = True
+            
+            # Store credentials for both user info and Gmail
+            token_filename = f"{user_info.get('email').replace('@', '_at_').replace('.', '_dot_')}_{int(time.time())}.pickle"
+            token_path = os.path.join(app.config['OAUTH_CREDENTIALS_DIR'], token_filename)
+            
+            # Save credentials to file for Gmail API use
+            with open(token_path, 'wb') as token:
+                pickle.dump(credentials, token)
+            
+            # Store token path in session
+            session['token_path'] = token_path
+            
+            # Also store credentials in session for user info API
+            session['credentials'] = {
+                'token': credentials.token,
+                'refresh_token': credentials.refresh_token,
+                'token_uri': credentials.token_uri,
+                'client_id': credentials.client_id,
+                'client_secret': credentials.client_secret,
+                'scopes': credentials.scopes
+            }
+            
+            flash(f'Welcome, {user_info.get("name")}!')
+        else:
+            flash('Failed to retrieve user information')
+        
+        return redirect(url_for('index'))
+        
+    except Exception as e:
+        logger.error(f"Error in OAuth callback: {str(e)}")
+        flash('Authentication error. Please try again.')
+        return redirect(url_for('index'))
+
+@app.route('/logout')
+def logout():
+    """Log out the user by clearing session data"""
+    # Keep essential data if needed
+    email = session.get('email')
+    
+    # Delete token file if it exists
+    token_path = session.get('token_path')
+    if token_path and os.path.exists(token_path):
+        try:
+            os.remove(token_path)
+        except Exception as e:
+            logger.error(f"Error deleting token file: {str(e)}")
+    
+    # Clear the session
+    session.clear()
+    
+    # Restore email for form prefill if desired
+    if email:
+        session['last_email'] = email
+    
+    flash('You have been logged out')
+    return redirect(url_for('index'))
+
+@app.route('/api/user/info')
+def user_info_api():
+    """API endpoint to get current user information"""
+    if not session.get('logged_in'):
+        return jsonify({'logged_in': False})
+    
+    return jsonify({
+        'logged_in': True,
+        'user_info': session.get('user_info', {})
+    })
+
+def get_oauth_flow(scopes=None):
+    """Create and return OAuth 2.0 flow instance with specified scopes"""
+    if scopes is None:
+        scopes = COMBINED_SCOPES
+    
+    # Use a single redirect URI for both authentication and Gmail API
+    redirect_uri = url_for('login_callback', _external=True)
+    
+    flow = Flow.from_client_secrets_file(
+        CLIENT_SECRETS_FILE,
+        scopes=scopes,
+        redirect_uri=redirect_uri
+    )
+    return flow
+
+def get_user_info(credentials):
+    """Retrieve user information from Google API"""
+    try:
+        # Build the service
+        service = build('oauth2', 'v2', credentials=credentials)
+        
+        # Call the userinfo API
+        user_info = service.userinfo().get().execute()
+        
+        return user_info
+    except Exception as e:
+        logger.error(f"Error retrieving user info: {str(e)}")
+        return None
 
 @app.route('/logout/gmail')
 def logout_gmail():
@@ -774,20 +1003,27 @@ def logout_zoho():
 
 @app.route('/jobs')
 def jobs_list():
-    # Check if user is authenticated
-    email = session.get('email')
-    if not email:
-        flash('Please log in to view your jobs')
-        return redirect(url_for('index'))
+    if not session.get('logged_in'):
+        flash('Please sign in first')
+        return redirect(url_for('login'))
+    else:
+        sender_email = request.form.get('sender_email', session.get('email', ''))
+        if not sender_email:
+            # This means no user login at all - redirect to login page
+            flash('Please log in to view your jobs')
+            return redirect(url_for('index'))
+    
+   
     
     # Get only jobs created by this user, sorted by creation date (newest first)
-    jobs = list(email_jobs.find({'sender_email': email}).sort('created_at', -1))
+    jobs = list(email_jobs.find({'sender_email': sender_email}).sort('created_at', -1))
     
     # Convert ObjectId to string for each job
     for job in jobs:
         job['id'] = str(job['_id'])
     
-    return render_template('jobs_list.html', jobs=jobs)
+    return render_template('jobs_list.html', jobs=jobs,  sender_email=sender_email)
+
 
 @app.route('/job/<job_id>')
 def job_details(job_id):
@@ -795,6 +1031,10 @@ def job_details(job_id):
     job = email_jobs.find_one({'_id': ObjectId(job_id)})
     if not job:
         flash('Job not found')
+        return redirect(url_for('jobs_list'))
+    
+    if job.get('sender_email') != session.get('email'):
+        flash('Access denied')
         return redirect(url_for('jobs_list'))
     
     # Add string ID for template access
@@ -850,8 +1090,10 @@ def terms_of_service():
     return render_template('terms_of_service.html')
 
 if __name__ == '__main__':
+    debug_mode = os.environ.get('FLASK_ENV') == 'development'
+    print(f"FLASK_ENV value: {os.environ.get('FLASK_ENV')}")
     print("="*80)
     print("Starting Flask Application")
-    print("Server running on: http://127.0.0.1:5000")
+    print(f"Server running on: http://127.0.0.1:5000 (Debug: {debug_mode})")
     print("="*80)
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    app.run(debug=debug_mode, host='127.0.0.1', port=5000)

@@ -29,6 +29,23 @@
         .progress {
             height: 10px;
         }
+        .form-section {
+            border-radius: 0.5rem;
+        }
+        .oauth-section {
+            text-align: center;
+            padding: 2rem;
+        }
+        .oauth-button {
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+        }
+        .authentication-info {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -41,14 +58,66 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/jobs">View Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/create_job">Create New Job</a>
-                    </li>
-                </ul>
+                {% if session.get('logged_in') %}
+                    <!-- Show full navigation for logged in users -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/jobs' %}active{% endif %}" href="/jobs">View Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/create_job' %}active{% endif %}" href="/create_job">Create New Job</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-flex">
+                        <!-- User is logged in, show profile dropdown -->
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% if session.get('user_info', {}).get('picture') %}
+                                    <img src="{{ session.get('user_info', {}).get('picture') }}" alt="Profile" class="rounded-circle me-2" style="width: 32px; height: 32px;">
+                                {% else %}
+                                    <i class="bi bi-person-circle me-2" style="font-size: 1.5rem;"></i>
+                                {% endif %}
+                                <span class="d-none d-md-inline">{{ session.get('user_info', {}).get('name', 'User') }}</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li class="dropdown-item-text">
+                                    <div class="d-flex flex-column">
+                                        <strong>{{ session.get('user_info', {}).get('name', 'User') }}</strong>
+                                        <small class="text-muted">{{ session.get('email', '') }}</small>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/create_job">Create Job</a></li>
+                                <li><a class="dropdown-item" href="/jobs">View Jobs</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                
+                                {% if session.get('zoho_authenticated') %}
+                                    <li><a class="dropdown-item" href="/logout/zoho">Disconnect Zoho</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="/zoho/authorize?email={{ session.get('email', '') }}">Connect Zoho CRM</a></li>
+                                {% endif %}
+                                
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/logout">Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- Show limited navigation for non-logged in users -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-flex">
+                        <!-- User is not logged in, show login button -->
+                        <a href="/login" class="btn btn-outline-light">
+                            <i class="bi bi-google me-2"></i>Sign in with Google
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -73,7 +142,28 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
+        
+        <!-- Gmail Authentication Status -->
+       
+        <!-- Gmail Authentication Info (when authenticated) -->
+        <div class="authentication-info mb-4">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                    <div>
+                        <strong>Authenticated with Gmail</strong><br />
+                        <span class="text-muted">{{ sender_email }}</span>
+                    </div>
+                </div>
+                <a href="{{ url_for('logout_gmail') }}" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-repeat me-1"></i>
+                    Switch Account
+                </a>
+            </div>
+        </div>
+      
 
+        <!-- Job List Section - Always visible but empty when no jobs -->
         {% if jobs %}
             <div class="card shadow-sm">
                 <div class="card-body p-0">
@@ -161,7 +251,7 @@
             </div>
           </div>
         </div>
-      </footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
