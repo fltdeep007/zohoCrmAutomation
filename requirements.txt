@@ -7,5 +7,5 @@ google-auth-oauthlib==1.2.0
 requests==2.31.0
 Werkzeug==3.0.1
 gunicorn
-aiohttp==3.9.3
+aiohttp>=3.10.11
 
