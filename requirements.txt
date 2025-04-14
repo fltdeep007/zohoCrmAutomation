@@ -8,4 +8,4 @@ requests==2.31.0
 Werkzeug>=3.0.6
 gunicorn
 aiohttp>=3.10.11
-
+flask_wtf
