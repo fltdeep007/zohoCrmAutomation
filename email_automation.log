@@ -958,3 +958,1280 @@
 2025-04-14 14:16:44,305 - __main__ - INFO - Successfully sent email to dee.jai.rt21@dypatil.edu, Message ID: 196337abc99a50c7
 2025-04-14 14:16:44,520 - werkzeug - INFO - 127.0.0.1 - - [14/Apr/2025 14:16:44] "GET /api/job-status/67fccb7137592726734bbb4d HTTP/1.1" 200 -
 2025-04-14 14:16:44,542 - werkzeug - INFO - 127.0.0.1 - - [14/Apr/2025 14:16:44] "GET /job/67fccb7137592726734bbb4d HTTP/1.1" 200 -
+2025-04-16 21:45:27,714 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:45:27,715 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:45:29,994 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:29] "GET / HTTP/1.1" 200 -
+2025-04-16 21:45:30,953 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:30,959 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:32,497 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 833, in login
+    session['login_state'] = state
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:32,498 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:32] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-04-16 21:45:32,781 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:32,783 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:35,897 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:35,901 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:37,129 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 833, in login
+    session['login_state'] = state
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:37,131 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:37] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-04-16 21:45:37,383 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:37,384 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:38,828 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:38,831 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:39,900 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 833, in login
+    session['login_state'] = state
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:39,901 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:39] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-04-16 21:45:40,189 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:40,190 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:41,067 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:41,070 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:42,603 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:42] "GET / HTTP/1.1" 200 -
+2025-04-16 21:45:42,890 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:42,890 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:43,188 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:43] "GET / HTTP/1.1" 200 -
+2025-04-16 21:45:43,413 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:43,415 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:44,069 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:44,070 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:44] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:45:44,501 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:44,502 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:45:46,944 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:45:46,945 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:45:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:46:34,602 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:46:34] "GET / HTTP/1.1" 200 -
+2025-04-16 21:46:34,930 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:46:34,932 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:46:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:46:36,401 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:46:36,402 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:46:36] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:46:36,767 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:46:36,767 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:46:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:13,631 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:47:13,632 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:47:16,517 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:16] "GET / HTTP/1.1" 200 -
+2025-04-16 21:47:17,391 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:17,398 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:19,470 - app - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 833, in login
+    session['login_state'] = state
+    ~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:19,470 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:19] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-04-16 21:47:19,805 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:19,806 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:20,873 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:20,874 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:21,715 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:21,716 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:21] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:47:21,988 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:21,989 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:22,861 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:22,863 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:24,199 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:24,201 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:24] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:47:24,454 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:24,455 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:29,079 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:29,080 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:47:36,611 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:36,612 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:36] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:47:37,243 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:47:37,244 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:47:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:48:17,401 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:48:17,403 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:48:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:48:25,865 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:48:25] "GET / HTTP/1.1" 200 -
+2025-04-16 21:48:26,395 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:48:26,396 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:48:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:49:03,714 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:03] "GET / HTTP/1.1" 200 -
+2025-04-16 21:49:03,977 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:03,978 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:49:46,263 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:49:46,263 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:49:50,867 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:50] "GET / HTTP/1.1" 200 -
+2025-04-16 21:49:51,592 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:51,594 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:49:52,360 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:52,362 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:52] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:49:52,613 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:52,614 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:49:57,782 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:57,783 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:57] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:49:58,435 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:49:58,436 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:49:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:53:42,331 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:42] "GET / HTTP/1.1" 200 -
+2025-04-16 21:53:43,140 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:53:43,142 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:53:46,604 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:46] "GET / HTTP/1.1" 200 -
+2025-04-16 21:53:46,878 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:53:46,879 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:53:47,566 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:53:47,567 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:47] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:53:47,811 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:53:47,812 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:53:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:46,145 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:46,177 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:46] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:55:46,446 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:46,447 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:48,007 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:48,008 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:48,439 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:48] "GET / HTTP/1.1" 200 -
+2025-04-16 21:55:48,666 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:48,668 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:49,127 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:49] "GET / HTTP/1.1" 200 -
+2025-04-16 21:55:49,341 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:49,342 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:49,945 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:49,946 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:49] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:55:50,210 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:50,212 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:51,421 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:51,424 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:55:53,275 - app - ERROR - Exception on /create_job [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:53,276 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:53] "[35m[1mGET /create_job HTTP/1.1[0m" 500 -
+2025-04-16 21:55:53,514 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Somiljain\Desktop\crm auto\app.py", line 514, in check_auth_status
+    flash('Please sign in to access this page')
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Somiljain\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-04-16 21:55:53,516 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:55:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-16 21:56:00,520 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:56:00,520 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:56:02,472 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:02] "GET / HTTP/1.1" 200 -
+2025-04-16 21:56:03,243 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:03] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:56:03,271 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:03] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:56:05,069 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:05] "GET / HTTP/1.1" 200 -
+2025-04-16 21:56:05,356 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:05] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:56:05,366 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:05] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:56:05,808 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:05] "[32mGET /create_job HTTP/1.1[0m" 302 -
+2025-04-16 21:56:05,813 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:05] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:56:13,508 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:13] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:56:13,515 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:56:13] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:58:44,086 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:58:44,086 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:58:44,088 - werkzeug - INFO -  * Restarting with stat
+2025-04-16 21:58:45,689 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 21:58:45,695 - werkzeug - INFO -  * Debugger PIN: 822-265-254
+2025-04-16 21:58:46,763 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:46] "GET / HTTP/1.1" 200 -
+2025-04-16 21:58:47,086 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:47] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:58:47,091 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:47] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:58:47,474 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:47] "[32mGET /create_job HTTP/1.1[0m" 302 -
+2025-04-16 21:58:47,486 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:47] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:58:50,222 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:50] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:58:50,228 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:58:50] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:59:11,616 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 21:59:11,616 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 21:59:11,618 - werkzeug - INFO -  * Restarting with stat
+2025-04-16 21:59:13,225 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 21:59:13,231 - werkzeug - INFO -  * Debugger PIN: 822-265-254
+2025-04-16 21:59:13,923 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:59:13] "GET / HTTP/1.1" 200 -
+2025-04-16 21:59:14,213 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:59:14] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 21:59:14,223 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:59:14] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 21:59:15,035 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:59:15] "[32mGET /create_job HTTP/1.1[0m" 302 -
+2025-04-16 21:59:15,042 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 21:59:15] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:00:53,775 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-16 22:00:53,775 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 22:00:53,777 - werkzeug - INFO -  * Restarting with stat
+2025-04-16 22:00:55,344 - werkzeug - WARNING -  * Debugger is active!
+2025-04-16 22:00:55,347 - werkzeug - INFO -  * Debugger PIN: 822-265-254
+2025-04-16 22:01:08,493 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:08] "GET / HTTP/1.1" 200 -
+2025-04-16 22:01:09,158 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:09] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 22:01:09,170 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:09] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:01:09,939 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:09] "GET / HTTP/1.1" 200 -
+2025-04-16 22:01:10,172 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 22:01:10,178 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:01:10,266 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "GET / HTTP/1.1" 200 -
+2025-04-16 22:01:10,522 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 22:01:10,528 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:01:10,741 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:10] "GET / HTTP/1.1" 200 -
+2025-04-16 22:01:11,109 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:11] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 22:01:11,199 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:11] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:01:11,482 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:11] "[32mGET /create_job HTTP/1.1[0m" 302 -
+2025-04-16 22:01:11,490 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:01:11] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:02:53,442 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:02:53] "GET / HTTP/1.1" 200 -
+2025-04-16 22:02:54,092 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:02:54] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-04-16 22:02:54,097 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:02:54] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:02:56,359 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:02:56] "[32mGET /create_job HTTP/1.1[0m" 302 -
+2025-04-16 22:02:56,367 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:02:56] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-16 22:03:12,084 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-04-16 22:03:12,603 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:03:12] "[32mGET /login/callback?state=OHGStO4yVaU2dSBdxlrXGz3lYNhUUi&code=4/0Ab_5qlllDU6QkD81JLXwksOMVgxiv5yZjnX1ZNpCxbEwFTAw_BngEwSKksUe116ZF2KQlQ&scope=email%20profile%20https://www.googleapis.com/auth/gmail.send%20openid%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=0&prompt=consent HTTP/1.1[0m" 302 -
+2025-04-16 22:03:12,610 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:03:12] "GET / HTTP/1.1" 200 -
+2025-04-16 22:03:13,259 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:03:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-16 22:03:16,784 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:03:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-16 22:03:16,790 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 22:03:16] "GET / HTTP/1.1" 200 -
